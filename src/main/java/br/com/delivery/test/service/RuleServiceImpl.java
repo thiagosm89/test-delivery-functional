@@ -46,12 +46,12 @@ public class RuleServiceImpl implements RuleService {
 
     private void definePipeline() {
         //A ordem será levada em consideração
-        rulesPipeline.add(Rule.of(2, 0.1, applyRulePredicate(LTE_THREE)));
-        rulesPipeline.add(Rule.of(3, 0.2, applyRulePredicate(LTE_FIVE)));
-        rulesPipeline.add(Rule.of(5, 0.3, applyRulePredicate(GT_FIVE)));
+        rulesPipeline.add(Rule.of(2, 0.1, rulePredicateApply(LTE_THREE)));
+        rulesPipeline.add(Rule.of(3, 0.2, rulePredicateApply(LTE_FIVE)));
+        rulesPipeline.add(Rule.of(5, 0.3, rulePredicateApply(GT_FIVE)));
     }
 
-    private Predicate<Long> applyRulePredicate(RuleJavascript lteThree) {
+    private Predicate<Long> rulePredicateApply(RuleJavascript lteThree) {
         return RULE_PREDICATE_FN.apply(lteThree.getFunc());
     }
 
