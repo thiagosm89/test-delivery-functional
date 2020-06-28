@@ -15,10 +15,12 @@ import java.util.function.Predicate;
 
 @Service
 public class RuleServiceImpl implements RuleService {
+    //Mais informações sobre nashorn: https://docs.oracle.com/javase/10/nashorn/introduction.htm#JSNUG136
     private static final ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
+
     private final List<Rule> rulesPipeline;
 
-    //Pode vir de banco de dados
+    //Pode vir de banco de dados, são funções javascripts que serão executadas de forma dinâmica no código
     private final static String LTE_THREE = "function(x) x > 0 && x <= 3";
     private final static String LTE_FIVE = "function(x) x > 0 && x <= 5";
     private final static String GT_FIVE = "function(x) x > 5";
