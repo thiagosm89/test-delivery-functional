@@ -1,0 +1,3 @@
+CREATE TABLE teste (
+    ID NUMBER PRIMARY KEY
+)
