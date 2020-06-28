@@ -38,6 +38,10 @@ public class Rule {
         this.latePenalty = latePenalty;
     }
 
+    public Predicate<Long> getDelayedDaysFn() {
+        return delayedDaysFn;
+    }
+
     public Optional<Rule> combineRule(Bill bill) {
         long delayedDays = ChronoUnit.DAYS.between(bill.getDueDate(), bill.getPayDate());
         return delayedDaysFn.test(delayedDays) ? Optional.of(this) : Optional.empty();
