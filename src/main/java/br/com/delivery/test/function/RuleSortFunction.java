@@ -1,5 +1,7 @@
-package br.com.delivery.test.model;
+package br.com.delivery.test.function;
 
+import br.com.delivery.test.model.Bill;
+import br.com.delivery.test.model.Rule;
 import io.vavr.Function1;
 
 import java.util.Optional;

@@ -1,8 +1,8 @@
 package br.com.delivery.test.service;
 
+import br.com.delivery.test.function.RuleSortFunction;
 import br.com.delivery.test.model.Bill;
 import br.com.delivery.test.model.Rule;
-import br.com.delivery.test.model.RuleSortFunction;
 import io.vavr.Function1;
 import org.springframework.stereotype.Service;
 
