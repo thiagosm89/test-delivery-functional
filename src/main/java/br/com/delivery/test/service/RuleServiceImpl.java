@@ -26,10 +26,10 @@ public class RuleServiceImpl implements RuleService {
     private final static String GT_FIVE = "function(x) x > 5";
 
     //Define o predicate de forma dinâmica, permitindo que esteja salvo em banco a lógica funcional
-    private final static Function1<String, Predicate<Long>> RULE_PREDICATE_FN = (stringFn) -> {
+    private final static Function1<String, Predicate<Long>> RULE_PREDICATE_FN = (javascriptFn) -> {
         try {
             String predicateName = Predicate.class.getName();
-            return (Predicate<Long>) engine.eval(String.format("new %s(%s)", predicateName, stringFn));
+            return (Predicate<Long>) engine.eval(String.format("new %s(%s)", predicateName, javascriptFn));
         } catch (ScriptException e) {
             e.printStackTrace();
         }
