@@ -43,9 +43,9 @@ public class BillServiceImplTest {
                 .verifyComplete();
     }
 
-    //Conta paga no dia de vencimento
+    //Conta paga no dia de vencimento sem atrasos
     @Test
-    public void save_whenNoLatePayment_thenRuleNull() {
+    public void save_whenNotLatePayment_thenRuleNull() {
         Bill bill = new Bill();
         bill.setDescription("Teste");
         bill.setDueDate(LocalDate.now());
