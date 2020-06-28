@@ -2,6 +2,7 @@ package br.com.delivery.test.service;
 
 import br.com.delivery.test.model.Bill;
 import br.com.delivery.test.model.Rule;
+import br.com.delivery.test.model.RuleJavascript;
 import io.vavr.Function1;
 import io.vavr.control.Try;
 import org.slf4j.Logger;
@@ -45,9 +46,13 @@ public class RuleServiceImpl implements RuleService {
 
     private void definePipeline() {
         //A ordem será levada em consideração
-        rulesPipeline.add(Rule.of(2, 0.1, RULE_PREDICATE_FN.apply(LTE_THREE.getFunc())));
-        rulesPipeline.add(Rule.of(3, 0.2, RULE_PREDICATE_FN.apply(LTE_FIVE.getFunc())));
-        rulesPipeline.add(Rule.of(5, 0.3, RULE_PREDICATE_FN.apply(GT_FIVE.getFunc())));
+        rulesPipeline.add(Rule.of(2, 0.1, applyRulePredicate(LTE_THREE)));
+        rulesPipeline.add(Rule.of(3, 0.2, applyRulePredicate(LTE_FIVE)));
+        rulesPipeline.add(Rule.of(5, 0.3, applyRulePredicate(GT_FIVE)));
+    }
+
+    private Predicate<Long> applyRulePredicate(RuleJavascript lteThree) {
+        return RULE_PREDICATE_FN.apply(lteThree.getFunc());
     }
 
     @Override
