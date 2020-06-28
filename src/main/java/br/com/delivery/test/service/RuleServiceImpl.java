@@ -25,15 +25,11 @@ public class RuleServiceImpl implements RuleService {
         rulesPipeline.add(RuleSortFunction.GT_FIVE);
     }
 
-    private Optional<Rule> executePipeline(final Bill bill, final Function1<Bill, Optional<Rule>> ruleFn) {
-        return ruleFn.apply(bill);
-    }
-
     @Override
     public Optional<Rule> associateRule(final Bill bill) {
         return rulesPipeline
                 .stream()
-                .map(fn -> executePipeline(bill, fn))
+                .map(fn -> fn.apply(bill))
                 .filter(Optional::isPresent)
                 .map(Optional::get)
                 .findFirst();
