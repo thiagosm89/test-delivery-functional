@@ -33,7 +33,7 @@ public class RuleServiceImpl implements RuleService {
         String predicateName = Predicate.class.getName();
         Try<Predicate<Long>> predicateTry = Try.of(() -> (Predicate<Long>) engine.eval(String.format("new %s(%s)", predicateName, javascriptFn)));
         if(predicateTry.isFailure()) {
-            LOGGER.error("Function Javascript is invalid.", predicateTry.getCause());
+            LOGGER.error("Malformed javascript function.", predicateTry.getCause());
             return null;
         }
         return predicateTry.get();
