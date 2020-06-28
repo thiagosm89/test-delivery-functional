@@ -73,7 +73,8 @@ public class BillServiceImplTest {
         StepVerifier.create(billMono.log())
                 .assertNext((b) -> {
                     assertTrue("Rule is null", b.getRule() != null);
-                    assertTrue("Rule is differente of 2", b.getRule().getLatePenalty().equals(2));
+                    assertTrue("Rule.getLatePenalty() is differente of 2", b.getRule().getLatePenalty().equals(2));
+                    assertTrue("Rule.getInterestLatePayment() is differente of 0.1", b.getRule().getInterestLatePayment().equals(0.1));
                 })
                 .verifyComplete();
     }
@@ -91,7 +92,8 @@ public class BillServiceImplTest {
         StepVerifier.create(billMono.log())
                 .assertNext((b) -> {
                     assertTrue("Rule is null", b.getRule() != null);
-                    assertTrue("Rule is differente of 3", b.getRule().getLatePenalty().equals(3));
+                    assertTrue("Rule.getLatePenalty() is differente of 2", b.getRule().getLatePenalty().equals(3));
+                    assertTrue("Rule.getInterestLatePayment() is differente of 0.1", b.getRule().getInterestLatePayment().equals(0.2));
                 })
                 .verifyComplete();
     }
@@ -109,7 +111,8 @@ public class BillServiceImplTest {
         StepVerifier.create(billMono.log())
                 .assertNext((b) -> {
                     assertTrue("Rule is null", b.getRule() != null);
-                    assertTrue("Rule is differente of 5", b.getRule().getLatePenalty().equals(5));
+                    assertTrue("Rule.getLatePenalty() is differente of 2", b.getRule().getLatePenalty().equals(5));
+                    assertTrue("Rule.getInterestLatePayment() is differente of 0.1", b.getRule().getInterestLatePayment().equals(0.3));
                 })
                 .verifyComplete();
     }
