@@ -3,12 +3,9 @@ package br.com.delivery.test.service;
 import br.com.delivery.test.model.Bill;
 import br.com.delivery.test.model.Rule;
 import br.com.delivery.test.repository.BillRepository;
-import io.vavr.Function2;
-import io.vavr.control.Either;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
-import java.math.BigDecimal;
 import java.util.Optional;
 import java.util.function.Function;
 
