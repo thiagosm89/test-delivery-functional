@@ -1,6 +1,6 @@
 package br.com.delivery.test.service;
 
-import br.com.delivery.test.function.RuleSortFunction;
+import br.com.delivery.test.function.RuleSortFn;
 import br.com.delivery.test.model.Bill;
 import br.com.delivery.test.model.Rule;
 import io.vavr.Function1;
@@ -21,9 +21,9 @@ public class RuleServiceImpl implements RuleService {
 
     private void definePipeline() {
         //A ordem será levada em consideração
-        rulesPipeline.add(RuleSortFunction.LTE_THREE);
-        rulesPipeline.add(RuleSortFunction.LTE_FIVE);
-        rulesPipeline.add(RuleSortFunction.GT_FIVE);
+        rulesPipeline.add(RuleSortFn.LTE_THREE);
+        rulesPipeline.add(RuleSortFn.LTE_FIVE);
+        rulesPipeline.add(RuleSortFn.GT_FIVE);
     }
 
     @Override
