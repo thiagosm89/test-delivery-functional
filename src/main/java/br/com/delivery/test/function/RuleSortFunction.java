@@ -6,6 +6,9 @@ import io.vavr.Function1;
 
 import java.util.Optional;
 
+/**
+ * Novas regras são adicionadas aqui.
+ */
 public class RuleSortFunction {
     public final static Function1<Bill, Optional<Rule>> LTE_THREE = (bill) -> Rule
             .of(2, 0.1, (delayedDays) -> delayedDays > 0 && delayedDays <= 3)

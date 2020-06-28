@@ -20,6 +20,7 @@ public class RuleServiceImpl implements RuleService {
     }
 
     private void definePipeline() {
+        //A ordem será levada em consideração
         rulesPipeline.add(RuleSortFunction.LTE_THREE);
         rulesPipeline.add(RuleSortFunction.LTE_FIVE);
         rulesPipeline.add(RuleSortFunction.GT_FIVE);
